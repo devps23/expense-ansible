@@ -2,4 +2,4 @@
   hosts: all
   become: true
   roles:
-    - "{{ playbook_name }}"
+    - "{{playbook_name}}"

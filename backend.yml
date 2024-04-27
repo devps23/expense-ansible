@@ -44,3 +44,27 @@
         path: /app
         state: latest
 
+    - name: copy backend service
+      ansible.builtin.template:
+        src: expense.conf
+        dest: /etc/systemd/system/backend.service
+        remote_src: yes
+
+    - name: restart backend service
+      ansible.builtin.systemd_service:
+        name: backend
+        state: restarted
+        enabled: yes
+        daemon_reload: true
+
+    - name: Install mysql package
+      ansible.builtin.dnf:
+        name: mysql
+        state: latest
+
+
+
+
+
+
+

@@ -66,8 +66,8 @@
         name: mysql
         state: import
         target: /app/schema/backend.sql
-        login_user: uroot
-        login_password: -pExpenseApp@1
+        login_user: root
+        login_password: ExpenseApp@1
         login_host: 172.31.25.56
 
 

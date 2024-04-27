@@ -98,3 +98,17 @@ frontend.yml
 
 rest backend,mysql is same
 
+keep the code DRY: means common code in every yml file under role keep in one folder.....
+
+keep the code under common ---> tasks ----> main.yml
+import this common code where required
+(search import role)
+- name: Import code commonly
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: pre-req.yml
+
+    in the above code......
+    name is a key and common is a directory under roles where we keep common code
+    tasks_from is a key and pre-req.yml is a file
+

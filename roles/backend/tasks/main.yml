@@ -41,10 +41,9 @@
     state: latest
 
 - name: copy backend service
-  ansible.builtin.template:
-    src: expense.conf
+  ansible.builtin.copy:
+    src: backend.service
     dest: /etc/systemd/system/backend.service
-    remote_src: yes
 
 - name: Install mysql package
   ansible.builtin.dnf:

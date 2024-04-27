@@ -59,19 +59,9 @@
     login_password: ExpenseApp@1
     login_host: 172.31.25.56
 
-
 - name: Reload daemon
   ansible.builtin.systemd_service:
     name: backend
     state: restarted
     enabled: yes
     daemon_reload: true
-
-#    - name: load schema
-#      mysql_user:
-#        name: mysql
-#        login_user: uroot
-#        login_password: -pExpenseApp@1
-#        login_host: 172.31.25.56
-#        target: /app/schema/backend.sql
-

@@ -13,32 +13,10 @@
     name: nginx
     enabled: yes
 
-- name: clean the code
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: absent
-
-- name: Make a drirectory
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: directory
-
-- name: Download frontend
-  ansible.builtin.get_url:
-    url: https://expense-artifacts.s3.amazonaws.com/expense-frontend-v2.zip
-    dest: /tmp/frontend.zip
-
-- name: Unarchive frontend
-  ansible.builtin.unarchive:
-    src: /tmp/frontend.zip
-    dest: /usr/share/nginx/html
-    remote_src: yes
-
-- name: copy expense conf
-  ansible.builtin.copy:
-    src: expense.conf
-    dest: /etc/nginx/default.d/expense.conf
-
+- name: Import code commonly
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: pre-req.yml
 
 - name: restart nginx service
   ansible.builtin.service:

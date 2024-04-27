@@ -1,0 +1,14 @@
+- name: expense mysql playbook
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Install mysql server package
+      ansible.builtin.dnf:
+        name: mysql-server
+        state: latest
+
+    - name: start and enable service
+      ansible.builtin.systemd_service:
+        name: mysqld
+        state: restarted
+        enabled: yes

@@ -1,11 +1,11 @@
 - name: clean the code
   ansible.builtin.file:
-    path: {{ app_loc }}
+    path: "{{ app_loc }}"
     state: absent
 
 - name: Make a drirectory
   ansible.builtin.file:
-    path: {{ app_loc }}
+    path: "{{ app_loc }}"
     state: directory
 
 - name: Download frontend
@@ -16,7 +16,7 @@
 - name: Unarchive frontend
   ansible.builtin.unarchive:
     src: /tmp/{{ component }}.zip
-    dest: {{ app_loc }}
+    dest: "{{ app_loc }}"
     remote_src: yes
 
 - name: copy expense conf

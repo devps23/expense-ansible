@@ -4,3 +4,97 @@ SOP:Standard operating procedure
 2. all the automation on OS will be Ansible
 3. all infra automation with terraform
 
+* frontend connects backend through conf file
+* conf  file contains backend localhost to connect from frontend to backend
+mysql:
+=====
+mysql: to excecute sql queries on my sql server.
+so we need to install my sql server.
+
+backend:
+========
+dnf module list---to list modules
+A daemon user is an account on the system under which a particular application is meant to run,
+thereby restricting access, etc. for that specific use-case
+
+should know mysql server vs mysql
+commands:
+=========
+sudo dnf install ansible
+sudo pip3.11 install ansible
+
+mysql_secure_installation is basically just a couple of SQL commands to make MySQL more secure.
+
+to lookup dns records use command "nslookup frontend.abc72.online"
+ to search any package:
+ ======================
+* dnf list | grep MYSQL-python
+* pip3.11 list ---to know the list of pacakges
+* ansible-playbook -i localhost, -e ansible-user="" -e ansible_password = "" -m ping -vv
+pip3.9 install PYMYSQL
+pip3.9 install Cryptography
+
+3 steps:
+========
+1.keep the code DRY
+2.username and password should not be there
+3.re-run should not fail
+
+to declare variables in three ways:
+===================================
+play role
+task role
+
+- name: variables
+  hosts: localhost
+  vars:
+    url_play: play.com
+  tasks:
+    - name: playlevle
+      ansible.builtin.debug:
+        msg: url_play--{{url_play}}
+
+    - name: itself
+      ansible.builtin.debug:
+        msg: local_var---{{local_var}}
+      vars:
+        local_var: example.com
+
+role level variable:
+===================
+declare vars under roles--->commmon--->vars--->main.yml
+under main.yml
+
+ - name: playlevle
+   ansible.builtin.debug:
+     msg: Hello
+
+  - name: playlevle
+    ansible.builtin.debug:
+      msg: url_play--{{url_play}}
+
+      url_play --value pass through command line
+
+if there is a key and value ,the dynamic value should keep in double quotes with flower brackets
+ex: value: "{{url_role}}"
+
+
+to follow ansible role structure:
+=================================
+roles
+---------->frontend
+           -------------->tasks----->main.yml
+           --------------->vars----->main.yml
+           --------------->common---->tasks---->main.yml
+
+should write in tasks,main.yml only tasks level code
+frontend.yml
+------------
+- name: frontend appl
+  hosts:all
+  become: true
+  roles:
+    "{{role_name}}"
+
+rest backend,mysql is same
+

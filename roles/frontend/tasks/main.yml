@@ -18,6 +18,11 @@
     name: common
     tasks_from: pre-req.yml
 
+- name: copy expense conf
+  ansible.builtin.copy:
+    src: expense.conf
+    dest: /etc/nginx/default.d/expense.conf
+
 - name: restart nginx service
   ansible.builtin.service:
     name: nginx

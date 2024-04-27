@@ -1,0 +1,6 @@
+SOP:Standard operating procedure
+
+1. all automations should run in GOCD
+2. all the automation on OS will be Ansible
+3. all infra automation with terraform
+

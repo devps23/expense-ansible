@@ -1,5 +1,5 @@
 - name: expense frontend playbook
-  hosts: localhost
+  hosts: all
   become: true
   roles:
     - frontend

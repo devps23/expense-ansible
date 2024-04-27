@@ -50,12 +50,6 @@
         dest: /etc/systemd/system/backend.service
         remote_src: yes
 
-#    - name: Reload daemon
-#      ansible.builtin.systemd_service:
-#        name: backend
-#        state: restarted
-#        daemon_reload: true
-
     - name: Install mysql package
       ansible.builtin.dnf:
         name: mysql
@@ -70,7 +64,11 @@
         state: import
         target: /app/schema/backend.sql
 
-
+    - name: Reload daemon
+      ansible.builtin.systemd_service:
+        name: backend
+        state: restarted
+        daemon_reload: true
 
 #    - name: load schema
 #      mysql_user:

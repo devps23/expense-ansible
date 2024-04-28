@@ -15,7 +15,7 @@
     tasks_from: pre-req.yml
 
 - name: copy expense conf
-  ansible.builtin.template:
+  ansible.builtin.copy:
     src: expense.conf
     dest: /etc/nginx/default.d/expense.conf
 
@@ -25,7 +25,7 @@
     state: restarted
     enabled: yes
 
-- name: Import nginx newrelic
-  ansible.builtin.import_role:
-    name: newrelic
-    tasks_from: relic_nginx
+#- name: Import nginx newrelic
+#  ansible.builtin.import_role:
+#    name: newrelic
+#    tasks_from: relic_nginx

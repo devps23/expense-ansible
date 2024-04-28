@@ -6,7 +6,7 @@
 - name: start nginx service
   ansible.builtin.systemd_service:
     name: nginx
-    state: installed
+    state: restarted
 
 - name: Enabled nginx service
   ansible.builtin.systemd_service:

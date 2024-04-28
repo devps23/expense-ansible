@@ -17,9 +17,15 @@
   ansible.builtin.import_role:
     name: common
     tasks_from: pre-req.yml
+# to copy file from src to dest so choose files folder
+#- name: copy expense conf
+#  ansible.builtin.copy:
+#    src: expense.conf
+#    dest: /etc/nginx/default.d/expense.conf
 
+# to copy text in different env dynamically choose templates folder
 - name: copy expense conf
-  ansible.builtin.copy:
+  ansible.builtin.template:
     src: expense.conf
     dest: /etc/nginx/default.d/expense.conf
 

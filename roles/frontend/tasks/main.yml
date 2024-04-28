@@ -15,7 +15,7 @@
     tasks_from: pre-req.yml
 
 - name: copy expense conf
-  ansible.builtin.copy:
+  ansible.builtin.template:
     src: expense.conf
     dest: /etc/nginx/default.d/expense.conf
 

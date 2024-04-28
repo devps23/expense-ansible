@@ -113,5 +113,112 @@ import this common code where required
     tasks_from is a key and pre-req.yml is a file
 
 
-calling the role from frontend.yml and control goes to frontend folder under roles
+calling the role from frontend.yml and control goes to frontend folder under roles.
+
+How to run ansible in multi environment?
+like dev,prod,....
+when we run the application in "dev" environment ,need to copy the expense.conf file in dev env...
+so , dynamicallly,copy module will not able to copy the expense.conf file . so here we use template modules
+
+* copy module will work for static data , to copy from src to dest file
+* template module will work for dynamic text data , to copy the text content from src to dest file dynamically
+ansible-playbook -i localhost, -e ansible_user="" -e ansible_pass="" env=dev frontend.yml
+* Role dependencies are always executed before the role that includes them, and may be recursive.
+* Role dependencies are prerequisites
+Ansible loads all listed roles but role dependencies loads first then other roles will execute....
+* Role dependencies are stored in the meta/main.yml file within the role directory.
+under frontend folder
+dependencies:
+  - role: common
+
+here common is a folder under roles
+common/tasks/main.yml
+===========
+- name: set sudo prompt
+  ansible.builtin.shell: set-prompt frontend
+
+
+
+in exepnse.conf: proxy_pass http://frontend-dev.abcdevops.online:8080
+here dev is a static
+proxy_pass http://frontend-{{env}}.abcdevops.online:8080
+here env to pass  dynamic(like env=dev)---for this code templates module came into the picture.....
+ansible-playbook -i localhost, -e ansible_user=ec2-user -e ansible_password=DevOps321 env=dev frontend.yml
+
+
+no need to write duplicate roles in each and every yml file....
+like
+frontend.yml
+=============
+- name:
+  hosts:
+  become:
+  roles:
+    - frontend
+
+in the above code to pass the roles dynamically instead of static
+playbook.yml
+=============
+ -name:
+  hosts:
+  become:
+  roles:
+   - {{role_name}}
+
+how to run ansible roles in linux?
+ansible-playbook -i localhost, playbook.yml -e ansible_user=ec2-user -e ansible_password = DevOps321 role_name=frontend
+
+then ansible controls move to playbook.yml file there assign "frontend"  to the role .
+then  control goes to frontend folder in roles.it will applicable for rest roles(backend,mysql)
+
+
+Ansible certification exam:
+============================
+1.Inventory:
+The Ansible inventory file defines the hosts and groups of hosts upon which commands,
+modules, and tasks in a playbook operate.(-i localhost)
+2.Environment:
+Ansible Environment variables are used to set the environment variable for action on the remote host
+using the environment keyword.(env=dev)
+3.Plays vs Playbooks
+playbooks:collection of plays
+Playbooks are collections of one or more plays that are performed in a certain order.(under roles)
+A play is an ordered sequence of tasks performed against hosts from your inventory. (frontend--->task---->main.yml)
+to run a specific play
+ansible-playbook -i localhost, playbook.yml -e ansible_user=ec2-user -e ansible_password = DevOps321 role_name=frontend
+4.configuration in ansible:
+$ ansible-config init --disabled > ansible.cfg---to generate config files
+5.adhoc commands:
+- m ping
+- m command
+-m group
+Use variables to retrieve the results of running commands
+=========================================================
+6.store result of task in output variable
+ - name: store result of task
+   ansible.builtin.shell: uptime
+   //here uptime is a builtin variable
+   register: output
+   here register is a key to store the task value into a variable
+
+retrieve the result of task
+- name: retreive the result of task
+  ansible.builtin.debug:
+    msg: {{output}}
+
+* sudo dnf install jq -y
+The jq command in Linux is a versatile tool that allows you to parse and manipulate JSON
+data right from your command line.
+to check proper json or not.
+cat /tmp/1.json | jq
+here 1.json is a file to store json data
+cat /tmp/1.json | jq .'failed'
+through ansible
+msg: {{output.failed}}
+for each and every module in ansible , json data is different
+
+7.Use conditionals to control play execution
+
+
+
 

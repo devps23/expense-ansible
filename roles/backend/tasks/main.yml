@@ -25,7 +25,7 @@
     tasks_from: pre-req.yml
 
 - name: copy backend service
-  ansible.builtin.copy:
+  ansible.builtin.template:
     src: backend.service
     dest: /etc/systemd/system/{{component}}.service
 

@@ -13,11 +13,7 @@
   ansible.builtin.user:
     name: expense
 
-- name: Install npm package
-  community.general.npm:
-    name: npm
-    path: /app
-    state: latest
+
 
 - name: Import common code
   ansible.builtin.import_role:
@@ -28,6 +24,12 @@
   ansible.builtin.template:
     src: backend.service
     dest: /etc/systemd/system/{{component}}.service
+
+- name: Install npm package
+  community.general.npm:
+    name: npm
+    path: /app
+    state: latest
 
 - name: Install Python MySQL Client
   ansible.builtin.pip:

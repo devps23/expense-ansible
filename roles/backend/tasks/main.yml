@@ -16,7 +16,7 @@
 - name: Install npm package
   community.general.npm:
     name: npm
-    path: "{{app_loc}}"
+    path: /app
     state: latest
 
 - name: Import common code

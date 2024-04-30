@@ -13,9 +13,9 @@
   ansible.builtin.user:
     name: expense
 
-- name: Install nodejs package
+- name: Install npm package
   community.general.npm:
-    name: nodejs
+    name: npm
     path: "{{app_loc}}"
     state: latest
 

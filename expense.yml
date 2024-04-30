@@ -1,4 +1,4 @@
-- name: expense backend playbook
+- name: expense playbook
   hosts: all
   become: true
   roles:

@@ -7,4 +7,4 @@
 
     - name: retrieve value of task
       ansible.builtin.debug:
-        msg: "{{ result }}"
+        msg: "{{ result.failed }}"

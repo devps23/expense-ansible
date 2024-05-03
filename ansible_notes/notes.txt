@@ -347,6 +347,9 @@ pipelines:gocd
 env command
 instead env
 
+errors: my conf root
+solution: not connected to proper hosts.(either reoder the code or check once...)
+
 
 
 

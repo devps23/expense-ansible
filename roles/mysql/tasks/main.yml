@@ -24,5 +24,9 @@
     filter: version
   register: mysql_connection_output
 
+- name: Receive DB Info
+  ansible.builtin.debug:
+    msg: "{{mysql_connection_output}}"
+
 - name: Set Rootpassword
   ansible.builtin.shell: mysql_secure_installation --set-root-pass ExpenseApp@1

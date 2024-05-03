@@ -13,6 +13,7 @@ so we need to install my sql server.
 
 backend:
 ========
+
 dnf module list---to list modules
 A daemon user is an account on the system under which a particular application is meant to run,
 thereby restricting access, etc. for that specific use-case

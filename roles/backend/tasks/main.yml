@@ -21,7 +21,7 @@
 - name: copy backend service
   ansible.builtin.template:
     src: backend.service
-    dest: /etc/systemd/system/{{component}}.service
+    dest: /etc/systemd/system/backend.service
 
 - name: Install npm package
   community.general.npm:
@@ -41,22 +41,14 @@
     name: mysql
     state: latest
 
-
-
 - name: Load schema
   community.mysql.mysql_db:
     name: all
     state: import
-    target: /app/schema/{{component}}.sql
+    target: /app/schema/backend.sql
     login_user: root
     login_password: ExpenseApp@1
-    login_host: 172.31.27.208
-
-
-
-
-
-
+    login_host: 172.31.20.157
 
 - name: Reload daemon
   ansible.builtin.systemd_service:

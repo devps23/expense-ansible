@@ -212,12 +212,139 @@ data right from your command line.
 to check proper json or not.
 cat /tmp/1.json | jq
 here 1.json is a file to store json data
-cat /tmp/1.json | jq .'failed'
+cat /tmp/1.json | jq '.failed'
 through ansible
 msg: {{output.failed}}
 for each and every module in ansible , json data is different
 
 7.Use conditionals to control play execution
+"when"
+- name: arithmetic
+  ansible.builtin.debug:
+    msg: add
+  when type == add
+
+- name: operator
+  ansible.builtin.debug:
+    msg: sub
+  when type == sub
+
+to run on linux:
+anisble-playbook var.yml type = add
+
+Scenario:
+In backend already db credentials are available.again repeated in mysql
+so get the sql info "mysql.mysql_db" (backend)
+In mysql we are having mysql error like "mysql-secure installation"
+* first get the sql info and then write the condition based on jq (json)
+
+
+8.configure error handling:
+===========================
+if a task is failure ,but the execution should not stop,then use "ignore_errors"
+
+9.create playbooks to configure systems to a specified state:
+=================================================================
+10.create and use templates to create customized configuration files:yes(need to search)
+11.work with ansible variables and facts:yes
+12.create and work with roles:yes
+13.ansible galaxy
+14:ansible vaults: vaults supports only ansible not integrate to other tools.
+===============================================================================
+* ansible-vault--enter
+to encrypt the string :ansible-vault encrypt_string abc@123
+then it will ask "new vault  password" "confirm vault password"
+then displays vault encryped password...
+copy vault password and paste in play level vars
+decrypt vault:
+to run vault through yml file, use "ansible-playbook abc.yml --ask-vault-password"
+to encrypt yml file
+* ansible-vault encrypt abc.yml
+to decrypt yml file
+* ansible-vault decrypt abc.yml
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+Loops in ansible:
+=================
+msg: "fruitname - {{item}}-{{quantity}}"
+loop:
+-{name:apple,quantity:1}
+-{name:mango,quantity:5}
+-{name:grapes,quantity:8}
+here item pick every time one by one
+
+ansible-filters:
+----------------
+msg:yes you need to install
+when: installed | bool
+instead of bool it will take string
+
+depolyment tool:
+================
+through automation we can deliver the application
+continuous deployment should not take
+continuous delivery:should take(to make everything to automate)
+
+GOCD : running the jobs is nothing but running ansible.
+gocd server: is a server to manage the jobs
+gocd agent: to run actual tasks
+In the GoCD ecosystem, the server is the one that controls everything. It provides the user interface to users of the system and provides work for the agents to do. The agents are the ones that do any work (run commands, do deployments, etc) that is configured by the users or administrators of the system.
+
+The server does not do any user-specified "work" on its own. It will not run any commands or do deployments. That is the reason you need a GoCD Server and at least one GoCD Agent installed before you proceed.
+
+pipelines:
+===========
+to run the jobs and deploy in test environment.
+to run the jobs in two ways:
+through automation
+through manual(ui)
+tomzo gocd yaml configuration:reference for gocd
+** bash ansible.sh frontend
+bash(command) ansible.sh(shell script --arguments)  frontend(arguments)
+in pipelines code "undet task section -->exec--->pass arguments"
+- ansible.sh(shell script)
+- frontend
+command: bash
+
+to run through bash command instead of linux server:
+=====================================================
+ansible.sh:
+============
+component=$1
+env(it is a command)
+bash ansible.sh frontend:command
+in the above command frontend is a $1(component)
+ansible-playbook -i localhost, playbook.yml  -e role_name=frontend  -e env=dev -e ansible_user=ec2-user -e ansible_password=DevOps321
+Environment:
+Environment variables can be declared in Environments, Pipelines, Stages and Jobs.
+stages:
+====
+environment_variables:
+TEST_NUM: 1
+
+* not declared environement variables in stage ,job level then we can use another approach
+ansible-playbook -i localhost, playbook.yml  -e role_name=frontend  -e env=$env -e ansible_user=ec2-user -e ansible_password=DevOps321
+SOP:
+====
+* All automations should run in GOCD
+* All automation on OS will be ansible
+
+By default ansible is a push mechanishm
+Ansible pull:
+=============
+* Server is connected with nodes through SSH so that it can push code to nodes. (runs in linux)
+* Ansible-pull is a command line tool that fetches a playbook from a git server and runs it locally-----(gocdserver)
+pulls playbooks from a VCS repo and executes them on target host.
+to get yml file from girt reop through git url and runs in the hosts(either localhost,different ip address)
+
+pending topics practice:
+========================
+register: mysql
+Ignore_errors:mysql
+ansible.sh
+pipelines:gocd
+env command
+instead env
 
 
 

@@ -350,6 +350,9 @@ instead env
 errors: my conf root
 solution: not connected to proper hosts.(either reoder the code or check once...)
 
+"use frontend host to connect React App"(to connect application)
+any changes in schema : restart service in linux server
+
 
 
 

@@ -340,15 +340,15 @@ to get yml file from girt reop through git url and runs in the hosts(either loca
 
 pending topics practice:
 ========================
-register: mysql
-Ignore_errors:mysql
-ansible.sh
+register: mysql----complete
+Ignore_errors:mysql---complete
+ansible.sh----complete
 pipelines:gocd
 env command
 instead env
 
 errors: my conf root
-solution: not connected to proper hosts.(either reoder the code or check once...)
+solution: not connected to proper hosts.(either reorder the code or check once...)
 
 "use frontend host to connect React App"(to connect application)
 any changes in schema : restart service in linux server

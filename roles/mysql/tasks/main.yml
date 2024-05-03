@@ -9,13 +9,20 @@
     state: restarted
     enabled: yes
 
+- name: Install Python MySQL Client
+  ansible.builtin.pip:
+    name:
+      - PyMySQL
+      - cryptography
+    executable: pip3.9
+
 - name: Get DB Info credentials
   community.mysql.mysql_info:
     login_user: root
     login_password: ExpenseApp@1
     login_host: 172.31.20.157
     filter: version
-    register: mysql-connection-output
+  register: mysql-connection-output
 
 - name: Set Rootpassword
   ansible.builtin.shell: mysql_secure_installation --set-root-pass ExpenseApp@1

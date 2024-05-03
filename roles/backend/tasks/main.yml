@@ -46,7 +46,7 @@
     login_user: root
     login_password: ExpenseApp@1
     login_host: 172.31.27.208
-  register: mysql-db-info
+  register: mysql-connection-output
 
 - name: Load schema
   community.mysql.mysql_db:

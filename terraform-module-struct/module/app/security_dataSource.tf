@@ -1,7 +1,6 @@
 data "aws_security_group" "selected" {
-  id = var.security_group_id
+  id = "allow"
 }
-variable "security_group_id" {}
 output "security_group" {
-  value = var.security_group_id
+  value = data.aws_security_group.selected
 }

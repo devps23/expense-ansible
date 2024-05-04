@@ -12,5 +12,5 @@ if [ -z "$action" ]; then
 fi
 
 rm -rf .terraform/terraform.tfstate
-terraform init -backend-config=s3/multistate_bkt/env-$env=state.tfvars
-terraform $action -var-file=s3/multistate_bkt/env-$env=main.tfvars
+terraform init -backend-config=s3/multistate_bkt/env-$env/state.tfvars
+terraform $action -var-file=s3/multistate_bkt/env-$env/main.tfvars

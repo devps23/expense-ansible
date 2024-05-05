@@ -3,11 +3,11 @@
     name: nginx
     state: latest
 
-- name: start and enabled nginx service
-  ansible.builtin.systemd_service:
-    name: nginx
-    state: started
-    enabled: yes
+#- name: start and enabled nginx service
+#  ansible.builtin.systemd_service:
+#    name: nginx
+#    state: started
+#    enabled: yes
 
 - name: Import code commonly
   ansible.builtin.import_role:

@@ -24,6 +24,7 @@
     filter: version
   register: mysql_connection_output
   ignore_errors: true
+
 - name: Receive DB Info
   ansible.builtin.debug:
     msg: "{{mysql_connection_output}}"

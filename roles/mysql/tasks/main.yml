@@ -18,6 +18,7 @@
 
 - name: Get DB Info credentials
   community.mysql.mysql_info:
+    name: all
     login_user: root
     login_password: ExpenseApp@1
     login_host: 172.31.21.3

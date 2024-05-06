@@ -16,13 +16,6 @@
       - cryptography
     executable: pip3.9
 
-- name: connect to DB
-  community.mysql.mysql_db:
-    name: mysql
-    login_user: root
-    login_password: ExpenseApp@1
-    login_host: mysql-dev.pdevops72.online
-
 - name: Get DB Info credentials
   community.mysql.mysql_info:
     login_user: root
@@ -30,6 +23,7 @@
     login_host: mysql-dev.pdevops72.online
     filter: version
   register: mysql_connection_output
+  Ignore_errors: yes
 
 - name: Receive DB Info
   ansible.builtin.debug:

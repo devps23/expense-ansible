@@ -18,7 +18,7 @@
 
 - name: connect to DB
   community.mysql.mysql_db:
-    name: all
+    name: mysql
     login_user: root
     login_password: ExpenseApp@1
     login_host: mysql-dev.pdevops72.online

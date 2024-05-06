@@ -16,6 +16,13 @@
       - cryptography
     executable: pip3.9
 
+- name: connect to DB
+  community.mysql.mysql_db:
+    name: all
+    login_user: root
+    login_password: ExpenseApp@1
+    login_host: mysql-dev.pdevops72.online
+
 - name: Get DB Info credentials
   community.mysql.mysql_info:
     login_user: root
@@ -30,6 +37,6 @@
 
 - name: Set Rootpassword
   ansible.builtin.shell: mysql_secure_installation --set-root-pass ExpenseApp@1
-#  when: mysql_connection_output.failed is true
+  when: mysql_connection_output.failed is true
 
 

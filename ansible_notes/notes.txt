@@ -616,14 +616,14 @@ where as pipelines hold previous and current history
 
 pending topics:
 ==============
-1.create bucket with nullresource
-2.multi state files
-3.to create folders env-dev/state.tfvars,dev.tfvars
-4.create resources
-5.datasource for existing security group
+1.create bucket with nullresource-----complete
+2.multi state files---complete
+3.to create folders env-dev/state.tfvars,dev.tfvars---complete
+4.create resources===complete
+5.datasource for existing security group===complete
 6.repeat resource multi times by using count,foreach
-7.create a module and pass inputs to module folder
-8.
+7.create a module and pass inputs to module folder---complete
+8.create ansible.sh----completed
 
 what is provider?
 definition:
@@ -633,6 +633,21 @@ Terraform has created a lock file .terraform.lock.hcl to record the provider
 selections it made above. Include this file in your version control repository
 so that Terraform can guarantee to make the same selections by default when
 you run "terraform init" in the future.
+
+session:24
+==========
+What OS does Ansible run on?
+The community distribution of Ansible contains a suite of powerful command line tools supported on most operating systems with Python installed.
+This includes Red Hat Enterprise Linux, Debian, Ubuntu, MacOS, FreeBSD, Microsoft Windows, and more.
+1.Inbuilt functions
+2.Provisioners
+local-exec
+remote-exec
+SOP:
+====
+3. All infra automation with terraform
+sudo pip3.11 install ansible
+ansible-pull -i localhost -U http://github.com/devops23/expense-ansible expense.yml -e env=${var.env} -e component_name=${var.component}
 
 
 

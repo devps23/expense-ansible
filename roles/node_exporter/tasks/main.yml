@@ -1,9 +1,8 @@
-- name: Download  and unarchive Prometheus
+- name: Download  and unarchive node exporter
   ansible.builtin.unarchive:
     src: https://github.com/prometheus/node_exporter/releases/download/v{{version}}/node_exporter-{{version}}.linux-amd64.tar.gz
     dest: /opt
     remote_src: yes
-    owner: bin
 
 - name: copy node_exporter service
   ansible.builtin.template:

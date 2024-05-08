@@ -1,5 +1,5 @@
 - name: set sudo prompt
-  ansible.builtin.shell: set-prompt frontend
+  ansible.builtin.shell: set-prompt {{component}}
 
 - name: Import common code
   ansible.builtin.import_role:

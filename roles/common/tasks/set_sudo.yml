@@ -1,2 +1,0 @@
-- name: set sudo prompt
-  ansible.builtin.shell: set-prompt frontend

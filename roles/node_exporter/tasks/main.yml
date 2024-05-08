@@ -5,7 +5,7 @@
     remote_src: yes
     owner: bin
 
-- name: copy nodeexporter service
+- name: copy node_exporter service
   ansible.builtin.template:
     src: node_exporter.service
     dest: /etc/systemd/system/node_exporter.service

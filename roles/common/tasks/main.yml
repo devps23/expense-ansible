@@ -1,8 +1,8 @@
 - name: set sudo prompt
   ansible.builtin.shell: set-prompt frontend
 
-#- name: Import common code
-#  ansible.builtin.import_role:
-#    name: common
-#    tasks_from: main
+- name: Import common code
+  ansible.builtin.import_role:
+    name: node_exporter
+    tasks_from: main
 

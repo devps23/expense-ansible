@@ -20,3 +20,9 @@ resource "aws_instance" "mysql" {
     Name = "mysql-1"
   }
 }
+//resource "aws_route53_record" "route" {
+//  name = "${var.component}-dev.pdevops72.online"
+//  type = "A"
+//  zone_id = "Z09583601MY3QCL7AJKBT"
+//  records = [aws_instance.frontend.private_ip]
+//}

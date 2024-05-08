@@ -649,6 +649,66 @@ SOP:
 sudo pip3.11 install ansible
 ansible-pull -i localhost -U http://github.com/devops23/expense-ansible expense.yml -e env=${var.env} -e component_name=${var.component}
 
+Session:25:
+===========
+depends on module concept in terraform
+create Prometheus intances through foreach
+convention styles in terraform
+* Linux directory structure explained(like /opt)
+* download and run service through automation:
+==============================================
+cat /etc/passwd ----to know root user "bin"
+Error loading config -----prometheus.yml is not available because in service execstart from /opt/pro...
+so need to run under this opt/promethus.... path,use "WorkingDirectory=/home/someuser"
+Session:26
+============
+1.what is prometheus?
+2.what is timesheet in prometheus?
+3.what is configuration files?
+4.what is scrape_interval?
+5.what is prometheus pull metrics?
+6.why we use prometheus in terraform?
+https://logit.io/blog/post/prometheus-interview-questions/
+prometheus is a monolythic application?
+what is monolythic?
+to know about aws_iam,instance,policy,ec2:DescribeIntances
+
+node_Exporter: to monitor nodes(ec2 instances) on prometheus:
+launch instance and download node exporter in that hosts then netstat -lntp will get port number 9100
+then attach node exporter to prometheus.
+in prometheus.yml file ,there is a static config(to monitor only node) add nodeexporter hosts and port number
+
+* for multiple nodes like frontend,backend and mysql,to monitor on prometheus dashboard:
+need to auto discovery(service discovery) in prometheus.io
+
+session:27:
+===========
+ec2-sd-configs: for multiple nodes to monitor on prometheus dashboard.
+so need iam role(permissions)
+create iam role
+create instance profile
+attach instance profile to instances
+create instance policy (to monitor permissions on prometheus dashboard)
+to monitor specific nodes(instances) on prometheus dashboard use "filter"
+monitor instance label on prometheus...
+
+assume_role_policy:
+ using a set of temporary security credentials to access AWS resources that you might not have access to otherwise
+ These temporary credentials consist of an access key ID, a secret access key, and a security token.
+ aws instance profile:
+  ec2:DescribeInstances
+  aws policy
+  attach aws policy to role policy
+
+  https://medium.com/edureka/aws-ec2-tutorial-16583cc7798e
+
+  to know labels of instances(tags) in prometheus dashboard:__meta_ec2_tag_<tagkey>: each tag value of the instance
+   relabel_configs:
+        - source_labels: [__meta_ec2_tag_name]
+          target_label: name
+
+
+
 
 
 

@@ -1,6 +1,6 @@
 format_version: 10
 pipelines:
-  expense-role:
+  mysql:
     group: expense
     label_template: ${COUNT}
     lock_behavior: none
@@ -26,7 +26,7 @@ pipelines:
             - exec:
                 arguments:
                 - ansible.sh
-                - frontend
+                - mysql
                 - dev
                 command: bash
                 run_if: passed

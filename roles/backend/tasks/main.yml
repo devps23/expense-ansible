@@ -44,11 +44,12 @@
 - name: Load schema
   community.mysql.mysql_db:
     name: all
+    state: import
+    target: /app/schema/backend.sql
     login_user: root
     login_password: ExpenseApp@1
     login_host: mysql-dev.pdevops72.online
-    state: import
-    target: /app/schema/backend.sql
+
 
 - name: Reload daemon
   ansible.builtin.systemd_service:

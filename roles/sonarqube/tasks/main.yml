@@ -1,0 +1,15 @@
+- name: set prompt
+  ansible.builtin.shell: set prompt sonarqube
+
+- name: Add sonarqube user
+  ansible.builtin.user:
+    name: sonar
+
+- name: Install Java
+  ansible.builtin.dnf:
+    name: java-17-openjdk
+    state: installed
+
+- name: create sonarqube directory
+  ansible.builtin.file:
+    path: /opt/sonarqube

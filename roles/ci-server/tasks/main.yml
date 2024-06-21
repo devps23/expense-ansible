@@ -12,10 +12,10 @@
     remote_src: yes
   become_user: ec2-user
 
-- name: display secrets
-  ansible.builtin.debug:
-    msg: "{{ lookup('ansible.builtin.env', 'secrets') }}"
+#- name: display secrets
+#  ansible.builtin.debug:
+#    msg: "{{ lookup('ansible.builtin.env', 'secrets') }}"
 
-#- name: start runner
-#  ansible.builtin.shell: ./config.sh  --unattended --url https://github.com/devps23 --token {{secrets.github-action-runner}}
+- name: start runner
+  ansible.builtin.shell: ./config.sh  --unattended --url https://github.com/devps23 --token {{secrets.github-action-runner}}
 

@@ -37,3 +37,16 @@
     dest: /opt/sonar_qb
     remote_src: yes
   become_user: sonar
+
+- name: setup sonar service
+  ansible.builtin.template:
+    src: sonarqube.service
+    dest: /etc/systemd/system/sonarqube.service
+
+- name: start sonar service
+  ansible.builtin.systemd_service:
+    name: sonarqube
+    state: restarted
+    enabled: true
+    daemon_reload: true
+

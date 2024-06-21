@@ -15,12 +15,14 @@
     path: /opt/sonarqube
     owner: sonar
     group: sonar
+    state: directory
 
 - name: create sonarqube sub directory
   ansible.builtin.file:
     path: /opt/sonar_qb
     owner: sonar
     group: sonar
+    state: directory
 
 - name: Download sonarqube
   ansible.builtin.get_url:
@@ -29,7 +31,7 @@
     owner: sonar
     group: sonar
 
-- name: Download and unarchive sonarqube
+- name: unarchive sonarqube
   ansible.builtin.unarchive:
     src: /opt/sonarqube
     dest: /opt/sonarqube/sonar_qb

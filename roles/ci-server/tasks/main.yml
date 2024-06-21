@@ -14,7 +14,7 @@
 
 - name: display secrets
   ansible.builtin.debug:
-    msg: "{{secrets.github-action-runner}}"
+    msg: "{{secrets}}"
 #- name: start runner
 #  ansible.builtin.shell: ./config.sh  --unattended --url https://github.com/devps23 --token {{secrets.github-action-runner}}
 

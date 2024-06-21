@@ -27,13 +27,13 @@
 - name: Download sonarqube
   ansible.builtin.get_url:
     url: https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.5.1.90531.zip
-    dest: /opt/sonarqube
+    dest: /opt/sonarqube/sonarqube-10.5.1.90531.zip
     owner: sonar
     group: sonar
 
 - name: unarchive sonarqube
   ansible.builtin.unarchive:
-    src: /opt/sonarqube
+    src: /opt/sonarqube/sonarqube-10.5.1.90531.zip
     dest: /opt/sonar_qb
     remote_src: yes
   become_user: sonar

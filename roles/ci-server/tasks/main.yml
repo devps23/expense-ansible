@@ -18,7 +18,7 @@
 
 - name: display secrets
   ansible.builtin.debug:
-    msg: "{{ token.github-action-runner }}"
+    msg: "{{ token.runner }}"
 
 #- name: start runner
 #  ansible.builtin.shell: ./config.sh remove --token {{token.github-action-runner}}; ./config.sh --unattended --url https://github.com/devps23  --token {{token.github-action-runner}}

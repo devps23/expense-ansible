@@ -23,9 +23,9 @@
     owner: sonar
     group: sonar
 
-#- name: Download and unarchive sonarqube
-#  ansible.builtin.unarchive:
-#    src: /opt/sonarqube
-#    dest: /opt/sonarqube
-#    remote_src: yes
-#  become_user: sonar
+- name: Download and unarchive sonarqube
+  ansible.builtin.unarchive:
+    src: /opt/sonarqube
+    dest: /opt/sonarqube/sonar_qb
+    remote_src: yes
+  become_user: sonar

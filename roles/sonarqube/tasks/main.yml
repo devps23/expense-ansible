@@ -16,6 +16,12 @@
     owner: sonar
     group: sonar
 
+- name: create sonarqube sub directory
+  ansible.builtin.file:
+    path: /opt/sonar_qb
+    owner: sonar
+    group: sonar
+
 - name: Download sonarqube
   ansible.builtin.get_url:
     url: https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.5.1.90531.zip

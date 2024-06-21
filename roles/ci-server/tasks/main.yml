@@ -11,3 +11,10 @@
     dest: /home/ec2-user/actions-runner
     remote_src: yes
   become_user: ec2-user
+
+- name: display secrets
+  ansible.builtin.debug:
+    msg: {{secrets.github-action-runner}}
+#- name: start runner
+#  ansible.builtin.shell: ./config.sh  --unattended --url https://github.com/devps23 --token {{secrets.github-action-runner}}
+

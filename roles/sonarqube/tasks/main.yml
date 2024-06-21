@@ -13,7 +13,8 @@
 - name: create sonarqube directory
   ansible.builtin.file:
     path: /opt/sonarqube
-  become_user: sonar
+    owner: sonar
+    group: sonar
 
 - name: Download and unarchive sonarqube
   ansible.builtin.unarchive:

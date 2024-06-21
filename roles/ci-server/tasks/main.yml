@@ -1,0 +1,3 @@
+- name: make a runner directory
+  ansible.builtin.file:
+    path: /home/ec2-user/actions-runner

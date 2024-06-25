@@ -12,19 +12,19 @@
     remote_src: yes
   become_user: ec2-user
 
-- name: display secrets
-  ansible.builtin.debug:
-    msg: "{{ token }}"
+#- name: display secrets
+#  ansible.builtin.debug:
+#    msg: "{{ token }}"
+#
+#- name: display secrets
+#  ansible.builtin.debug:
+#    msg: "{{ token.actions }}"
 
-- name: display secrets
-  ansible.builtin.debug:
-    msg: "{{ token.actions }}"
-
-#- name: start runner
-#  ansible.builtin.shell: ./config.sh remove --token {{token.github_action_runner}}; ./config.sh --unattended --replace --url https://github.com/devps23  --token {{token.github_action_runner}}
-#  args:
-#    chdir: /home/ec2-user/actions-runner/
-#  become_user: ec2-user
+- name: start runner
+  ansible.builtin.shell: ./config.sh remove --token {{token.actions}}; ./config.sh --unattended --replace --url https://github.com/devps23  --token {{token.actions}}
+  args:
+    chdir: /home/ec2-user/actions-runner/
+  become_user: ec2-user
 
 
 

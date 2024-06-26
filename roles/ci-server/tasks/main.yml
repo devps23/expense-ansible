@@ -9,7 +9,7 @@
   ansible.builtin.shell: ./svc.sh runner uninstall
   args:
     chdir: /home/ec2-user/actions-runner/
-  become_user: ec2-user
+
 
 - name: Download runner
   ansible.builtin.unarchive:

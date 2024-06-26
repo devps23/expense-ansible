@@ -42,9 +42,11 @@
     state: installed
 
 - name: Download sonar scanner cli
-  ansible.builtin.get_url:
-    url: https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-6.0.0.4432-linux.zip
+  ansible.builtin.unarchive:
+    src: https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-6.0.0.4432-linux.zip
     dest: /opt
+
+
 
 
 

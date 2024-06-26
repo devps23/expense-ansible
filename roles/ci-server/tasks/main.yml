@@ -45,6 +45,7 @@
   ansible.builtin.unarchive:
     src: https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-6.0.0.4432-linux.zip?_gl=1*vfewuu*_gcl_au*MTc2NjYxNDU5Mi4xNzE4ODgxMjY2*_ga*MTQ0OTE4NjMwLjE3MTg4ODEyNjc.*_ga_9JZ0GZ5TC6*MTcxOTIxMDcwNC40LjAuMTcxOTIxMDcwNC42MC4wLjA.
     dest: /opt
+    remote_src: yes
 
 
 

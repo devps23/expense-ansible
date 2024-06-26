@@ -27,7 +27,7 @@
 #    msg: "{{ token.actions }}"
 
 - name: Install runner config
-  ansible.builtin.shell: ./config.sh remove --token {{token.actions}}; ./config.sh --unattended --replace --url https://github.com/devps23  --token {{token.actions}}
+  ansible.builtin.shell: ./config.sh remove --unattended --url https://github.com/devps23 --token {{token.actions}}; ./config.sh --unattended --replace --url https://github.com/devps23  --token {{token.actions}}
   args:
     chdir: /home/ec2-user/actions-runner/
   become_user: ec2-user

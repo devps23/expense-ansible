@@ -6,7 +6,7 @@
     group: ec2-user
 
 - name: Uninstall runner config
-  ansible.builtin.shell: ./svc.sh uninstall
+  ansible.builtin.shell: ./svc.sh runner uninstall
   args:
     chdir: /home/ec2-user/actions-runner/
   become_user: ec2-user

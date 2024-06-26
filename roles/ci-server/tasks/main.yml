@@ -20,11 +20,16 @@
 #  ansible.builtin.debug:
 #    msg: "{{ token.actions }}"
 
-- name: start runner
+- name: Install runner config
   ansible.builtin.shell: ./config.sh remove --token {{token.actions}}; ./config.sh --unattended --replace --url https://github.com/devps23  --token {{token.actions}}
   args:
     chdir: /home/ec2-user/actions-runner/
   become_user: ec2-user
+
+- name: Start runner
+  ansible.builtin.shell: ./svc.sh install ; ./svc.sh start
+  args:
+    chdir: /home/ec2-user/actions-runner/
 
 
 

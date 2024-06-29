@@ -20,10 +20,10 @@
 #- name: display secrets
 #  ansible.builtin.debug:
 #    msg: "{{ token.actions }}"
-#- name: Uninstall runner service
-#  ansible.builtin.shell: ./svc.sh  uninstall
-#  args:
-#    chdir: /home/ec2-user/actions-runner/
+- name: Uninstall runner service
+  ansible.builtin.shell: ./svc.sh  uninstall
+  args:
+    chdir: /home/ec2-user/actions-runner/
 
 - name: Install runner config
   ansible.builtin.shell: ./config.sh remove  --token {{token.actions}}; ./config.sh --unattended --replace --url https://github.com/devps23  --token {{token.actions}}

@@ -1,0 +1,9 @@
+- name: set artifactory prompt
+  ansible.builtin.shell: set-prompt artifactory
+
+- name: setup artifactory repo
+  ansible.builtin.template:
+    src: artifactory.repo
+    dest: /etc/yum.repos.d/jfrog-artifactory-rpms.repo
+
+

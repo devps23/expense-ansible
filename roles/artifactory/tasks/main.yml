@@ -9,7 +9,7 @@
 - name: Download artifactory
   ansible.builtin.unarchive:
     src:  https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/7.71.17/jfrog-artifactory-oss-7.71.17-linux.tar.gz
-    dest: /opt/artifactory
+    dest: /opt/artifactory_jfrog
     remote_src: yes
 
 #- name: Install jfrog

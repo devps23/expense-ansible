@@ -8,7 +8,7 @@
 
 - name: Download artifactory
   ansible.builtin.unarchive:
-    src:  https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/7.71.11/jfrog-artifactory-oss-7.71.11-linux.tar
+    src:  https://releases-cdn.jfrog.io/filestore/d0/d0f6dc9ac03e043c63016a76cf1b72f9da477724?response-content-type=application%2Fx-gzip&response-content-disposition=attachment%3Bfilename%3D%22jfrog-artifactory-oss-7.71.11-linux.tar.gz%22&x-jf-traceId=fe8332fa4afee63f&X-Artifactory-repositoryKey=bintray-artifactory&X-Artifactory-projectKey=default&X-Artifactory-artifactPath=org%2Fartifactory%2Foss%2Fjfrog-artifactory-oss%2F7.71.11%2Fjfrog-artifactory-oss-7.71.11-linux.tar.gz&X-Artifactory-username=anonymous&X-Artifactory-repoType=local&X-Artifactory-packageType=generic&Expires=1719929097&Signature=LznCzjoJaKxaTsijCSGw-1rD8KSLr29nrLZDbUlsQHff3YQcwxtmDxqGHIRd12b3AqwMqwTk2tDTokcC7LhBS9SlntlIHMLVzDWEs14iQfQsldGe98EmtN4J3Me1BRM0jWuTo76N4IAkrbMRr7JeT~2RtPCpyTd2tnTMr0NtPV0tQmTW3cdv2g833GVs0LigUu7VVxXQ9QZXqMNRn4tC0b8Lcn38eA2paY8vFA-opaZS-TInWCi4w0fXJH-VeSjSEXDoKLGZ2UWfHerb5E5o4pEOcZcVuMspvff590EEgDfodjWK60~ZVDc9EF-YqRblIuCqwYtzAC07GqnVFyvgSg__&Key-Pair-Id=APKAJ6NHFWMVU3M6DPBA
     dest: /opt
     remote_src: yes
 

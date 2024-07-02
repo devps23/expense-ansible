@@ -1,14 +1,19 @@
 - name: set artifactory prompt
   ansible.builtin.shell: set-prompt artifactory
 
-- name: setup artifactory repo
-  ansible.builtin.template:
-    src: artifactory.repo
-    dest: /etc/yum.repos.d/jfrog-artifactory-rpms.repo
+#- name: setup artifactory repo
+#  ansible.builtin.template:
+#    src: artifactory.repo
+#    dest: /etc/yum.repos.d/jfrog-artifactory-rpms.repo
 
-- name: Install jfrog
-  ansible.builtin.dnf:
-    name: jfrog-artifactory-oss
-    state: installed
+- name: Download artifactory
+  ansible.builtin.get_url:
+    url:  https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/7.71.11/jfrog-artifactory-oss-7.71.11-linux.tar
+    dest: /opt
+
+#- name: Install jfrog
+#  ansible.builtin.dnf:
+#    name: jfrog-artifactory-oss
+#    state: installed
 
 

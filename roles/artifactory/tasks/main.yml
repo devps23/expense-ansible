@@ -6,4 +6,9 @@
     src: artifactory.repo
     dest: /etc/yum.repos.d/jfrog-artifactory-rpms.repo
 
+- name: Install jfrog
+  ansible.builtin.dnf:
+    name: jfrog-artifactory-oss
+    state: installed
+
 

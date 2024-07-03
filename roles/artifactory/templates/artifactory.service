@@ -1,0 +1,10 @@
+[Unit]
+Description = artifactory Service
+
+[Service]
+ExecStart=/opt/artifactory/artifactory-oss-7.71.17/app/bin/installService.sh start
+SyslogIdentifier=artifactory
+Type=forking
+
+[Install]
+WantedBy=multi-user.target

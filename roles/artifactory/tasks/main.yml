@@ -24,7 +24,6 @@
     src: artifactory.service
     dest: /etc/systemd/system/artifactory.service
 
-
 - name: start service
   ansible.builtin.systemd_service:
     name: artifactory
@@ -32,9 +31,6 @@
     enabled: yes
     daemon_reload: yes
 
-#- name: Install jfrog
-#  ansible.builtin.dnf:
-#    name: jfrog-artifactory-oss
-#    state: installed
+
 
 

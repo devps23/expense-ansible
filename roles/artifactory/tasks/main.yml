@@ -5,12 +5,15 @@
 #  ansible.builtin.template:
 #    src: artifactory.repo
 #    dest: /etc/yum.repos.d/jfrog-artifactory-rpms.repo
-
+- name: create sonarqube directory
+  ansible.builtin.file:
+    path: /opt/artifactory
 
 - name: Download artifactory
-  ansible.builtin.get_url:
-    url:  https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/7.71.17/jfrog-artifactory-oss-7.71.17-linux.tar.gz
+  ansible.builtin.unarchive:
+    src:  https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/7.71.17/jfrog-artifactory-oss-7.71.17-linux.tar.gz
     dest: /opt
+    remote_src: yes
 
 
 #- name: Install jfrog

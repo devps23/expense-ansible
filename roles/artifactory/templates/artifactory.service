@@ -2,6 +2,8 @@
 Description = artifactory Service
 
 [Service]
+user=artifact
+WorkingDirectory=/opt/artifactory/artifactory-oss-7.71.17/app/bin
 ExecStart=/opt/artifactory/artifactory-oss-7.71.17/app/bin/installService.sh start
 SyslogIdentifier=artifactory
 

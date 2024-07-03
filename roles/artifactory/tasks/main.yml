@@ -8,6 +8,7 @@
 - name: create sonarqube directory
   ansible.builtin.file:
     path: /opt/artifactory
+    state: directory
 
 - name: Download artifactory
   ansible.builtin.unarchive:

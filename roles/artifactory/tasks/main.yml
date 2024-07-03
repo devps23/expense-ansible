@@ -23,7 +23,7 @@
   ansible.builtin.template:
     src: artifactory.service
     dest: /etc/systemd/system/artifactory.service
-    become_user: artifact
+
 
 - name: start service
   ansible.builtin.systemd_service:

@@ -1,22 +1,25 @@
 - name: set artifactory prompt
   ansible.builtin.shell: set-prompt artifactory
 
-#- name: setup artifactory repo
-#  ansible.builtin.template:
-#    src: artifactory.repo
-#    dest: /etc/yum.repos.d/jfrog-artifactory-rpms.repo
-- name: create sonarqube directory
+- name: Add artifactory  user
+  ansible.builtin.user:
+    name: artifact
+
+- name: create artifactory directory
   ansible.builtin.file:
     path: /opt/artifactory
     state: directory
+    owner: artifact
+    group: artifact
 
-- name: Download ans unarchive artifactory
+- name: Download and unarchive artifactory
   ansible.builtin.unarchive:
     src:  https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/7.71.17/jfrog-artifactory-oss-7.71.17-linux.tar.gz
     dest: /opt/artifactory
     remote_src: yes
+  become_user: artifact
 
-- name: setup sonar service
+- name: setup artifactory service
   ansible.builtin.template:
     src: artifactory.service
     dest: /etc/systemd/system/artifactory.service

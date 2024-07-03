@@ -2,6 +2,7 @@
 Description = artifactory Service
 
 [Service]
+user=artifact
 ExecStart=/opt/artifactory/artifactory-oss-7.71.17/app/bin/installService.sh start
 SyslogIdentifier=artifactory
 Type=forking

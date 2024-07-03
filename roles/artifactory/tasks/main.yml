@@ -19,17 +19,17 @@
     remote_src: yes
   become_user: artifact
 
-- name: setup artifactory service
-  ansible.builtin.template:
-    src: artifactory.service
-    dest: /etc/systemd/system/artifactory.service
-
-- name: start service
-  ansible.builtin.systemd_service:
-    name: artifactory
-    state: started
-    enabled: yes
-    daemon_reload: yes
+#- name: setup artifactory service
+#  ansible.builtin.template:
+#    src: artifactory.service
+#    dest: /etc/systemd/system/artifactory.service
+#
+#- name: start service
+#  ansible.builtin.systemd_service:
+#    name: artifactory
+#    state: started
+#    enabled: yes
+#    daemon_reload: yes
 
 #- name: Install jfrog
 #  ansible.builtin.dnf:

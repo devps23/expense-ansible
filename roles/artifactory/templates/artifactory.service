@@ -1,12 +1,16 @@
-[Unit]
-Description = artifactory Service
+ [Unit]
+ Description=Artifactory service
+ After=network.target
 
-[Service]
-User=artifact
-WorkingDirectory=/opt/artifactory/artifactory-oss-7.71.17/app/bin
-ExecStart=/opt/artifactory/artifactory-oss-7.71.17/app/bin/installService.sh restart
-SyslogIdentifier=artifactory
-Type=forking
+ [Service]
+ Type=forking
+ GuessMainPID=yes
+ Restart=always
+ RestartSec=60
+ PIDFile=/var/run/artifactory.pid
+ ExecStart=/opt/artifactory-oss-7.47.16/app/bin/artifactoryManage.sh start
+ ExecStop=/opt/artifactory-oss-7.47.16/app/bin/artifactoryManage.sh stop
 
-[Install]
-WantedBy=multi-user.target
+ [Install]
+ WantedBy=multi-user.target
+ Alias=artifactory.service

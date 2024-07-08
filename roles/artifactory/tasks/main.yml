@@ -19,6 +19,7 @@
     remote_src: yes
     owner: artifact
     group: artifact
+  become_user: artifact
 
 - name: setup artifactory service
   ansible.builtin.template:

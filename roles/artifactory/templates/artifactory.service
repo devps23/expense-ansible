@@ -3,6 +3,7 @@
  After=network.target
 
  [Service]
+ user=artifact
  Type=forking
  GuessMainPID=yes
  Restart=always

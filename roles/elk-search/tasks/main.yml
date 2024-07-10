@@ -37,7 +37,7 @@
   ansible.builtin.lineinfile:
     path: /etc/kibana/kibana.yml
     regexp: '^#server-port:5601'
-    line: 'server.port: 5601'
+    line: 'server.port:5601'
 
 - name: selact and update host
   ansible.builtin.lineinfile:

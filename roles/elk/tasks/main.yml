@@ -1,5 +1,5 @@
-- name: set name
-  ansible.builtin.shell: sudo set-prompt elk
+#- name: set name
+#  ansible.builtin.shell: sudo set-prompt elk
 
 - name: copy elastic repo
   ansible.builtin.template:

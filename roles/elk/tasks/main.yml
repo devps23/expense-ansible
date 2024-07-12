@@ -23,13 +23,13 @@
     name: kibana
     state: installed
 
-- name: selact and update port
+- name: select and update port
   ansible.builtin.lineinfile:
     path: /etc/kibana/kibana.yml
     regexp: '^#server.port: 5601'
     line: "server.port: 5601"
 
-- name: selact and update host
+- name: select and update host
   ansible.builtin.lineinfile:
     path: /etc/kibana/kibana.yml
     regexp: '^#server.host: localhost'

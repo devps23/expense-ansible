@@ -26,6 +26,8 @@
     path: /var/lib/jenkins/init.groovy.d
     state: directory
 
+
+
 - name: copy groovy file
   ansible.builtin.template:
     src: "{{ item }}"

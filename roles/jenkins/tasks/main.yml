@@ -3,13 +3,10 @@
     file: jenkins-setup.yml
   when: jenkins-setup | bool
 
-- name: copy groovy file
-  ansible.builtin.template:
-    src: "{{ item }}"
-    dest: /var/lib/jenkins/init.groovy.d/{{ item }}
-  loop:
-    - 01-wizard.groovy
-    - 02-admin-user.groovy
-    - 03-plugins.groovy
+- name: include jenkins-jobs file
+  ansible.builtin.include_tasks:
+    file: jenkins-jobs.yml
+  when: jenkins-jobs | bool
+
 
 

@@ -1,6 +1,6 @@
 format_version: 10
 pipelines:
-  elk:
+  jenkins:
     group: expense
     label_template: ${COUNT}
     lock_behavior: none

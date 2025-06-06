@@ -46,7 +46,7 @@
     name: all
     login_user: root
     login_password: ExpenseApp@1
-    login_host: mysql-dev.pdevops72.online
+    login_host: mysql-dev.pdevops78.online
     state: import
     target: /app/schema/backend.sql
 

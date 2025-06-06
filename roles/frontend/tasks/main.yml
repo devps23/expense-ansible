@@ -8,6 +8,7 @@
 #    name: nginx
 #    state: started
 #    enabled: yes
+-
 - name: copy expense conf
   ansible.builtin.template:
     src: expense.conf
@@ -24,7 +25,3 @@
     state: restarted
     enabled: yes
 
-#- name: Import nginx newrelic
-#  ansible.builtin.import_role:
-#    name: newrelic
-#    tasks_from: relic_nginx
